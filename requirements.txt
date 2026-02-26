@@ -2,7 +2,7 @@ Django
 django-extensions
 djangorestframework
 python-decouple
-git+https://github.com/goldendevuz/django-jazzmin.git@b82bf0ebe9266d11aaf394b97f12724915ec8884#egg=django-jazzmin
+django-jazzmin
 drf-material
 icecream
 uvicorn
@@ -16,3 +16,4 @@ drf-spectacular[sidecar]
 django-filter
 djangorestframework-jsonapi[django-filter]
 Pillow
+django-unfold
