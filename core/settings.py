@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from corsheaders.defaults import default_headers
 
-from config import (SECRET_KEY, DEBUG, ADMIN_URL, ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS,
-                      EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, API_V1_URL, ACCESS_TOKEN_LIFETIME, REFRESH_TOKEN_LIFETIME)
+from config import (SECRET_KEY, DEBUG, ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS,
+                      EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
