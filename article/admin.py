@@ -36,7 +36,30 @@ def register_model(model):
         "list_filter": fields,
         "search_fields": fields,
     }
-        
+
+    if model == Article:
+        # Muallifni avtomatik qo'shish
+        def save_model(self, request, obj, form, change):
+            if not change:  # Yangi article yaratilayotganda
+                obj.author = request.user
+            super().save_model(request, obj, form, change)
+
+        admin_attrs['save_model'] = save_model
+
+        # ManyToMany field uchun filter_horizontal
+        admin_attrs['filter_horizontal'] = ['category']
+
+        # Readonly fields
+        admin_attrs['readonly_fields'] = ['author', 'date']
+
+        # List display ga qo'shimchalar
+        if 'author' not in admin_attrs['list_display']:
+            admin_attrs['list_display'].append('author')
+        if 'date' not in admin_attrs['list_display']:
+            admin_attrs['list_display'].append('date')
+
+        # List filter ga qo'shimchalar
+        admin_attrs['list_filter'] = list(admin_attrs['list_filter']) + ['category', 'date']
     for field in text_fields:
         method_name = f"short_{field}"
 
